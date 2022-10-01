@@ -1,0 +1,20 @@
+.App{
+  display: flex;
+  flex-direction: column;
+  background-image: url(./assets/images/bg4.jpg);
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  justify-content: center;
+  text-align: center;
+
+  h1, h2, h3{
+    font-family: 'Quintessential', cursive;
+    color:aliceblue;
+    
+  }
+
+ 
+}
+

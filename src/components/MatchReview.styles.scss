@@ -1,0 +1,193 @@
+:root {
+	--color: #0ebeff;
+}
+  
+  .title{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cardContainer{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(15, 37, 172);
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    padding:10px;
+    border: solid 1px rgb(15, 37, 172);
+    border-radius: .25em;
+    box-shadow: 1em 1em 2em .25em rgba(210, 207, 207, 0.2);
+    opacity: 0;
+    transform: translateY(4em) rotateZ(-5deg);
+    transition: transform 4s .25s cubic-bezier(0,1,.3,1),
+                opacity .3s .25s ease-out;
+    will-change: transform, opacity;
+
+    .content{
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+    }
+
+    img{
+      width:120px;
+    }
+
+    .goldenBoot{
+      display: grid;
+      grid-template-rows: 1fr auto;
+      align-items: center;
+
+      .content{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+      }
+
+      img{
+        width:300px;
+        height:300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    
+    .yellowCard{
+        .content{
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: minmax(90px,110px) minmax(10px, 20px) 0.1fr auto;
+
+          .cardTotals{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+          }
+
+          .players{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+            img{
+              width: 300px;
+              height:300px;
+            }
+          }
+        }
+    }
+
+    .redCard{
+      .content{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+      }
+      img{
+        width: 300px;
+      }
+    }
+  }
+
+  .statics-container{
+    display: flex;    
+    flex-direction: row;
+
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    
+    @keyframes buttonRotate {
+      100% {
+        transform: translate(-50%, -50%) rotate(1turn);
+      }
+    }
+
+    .btn{
+      position: relative;
+      z-index: 0;
+      width: 160px;
+      height: 80px;
+      margin-top: auto;
+      margin-bottom: auto;
+      border-radius: 10px;
+      text-align: center;
+      align-items: center;
+      padding-top: 8px;
+      text-decoration: none;
+      color:#0ebeff;
+      font-family: 'Quintessential';
+      font-size: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: .3s;
+      -webkit-box-reflect: below 10px linear-gradient(transparent, rgba(0, 0, 0, .4));
+
+      &:hover {
+        color: #fff;
+        box-shadow: 0 0 5px var(--color),
+          0 0 25px var(--color);
+        
+        &::after,
+        &::before {
+          transition: .3s;
+          background: var(--color);
+        }
+      }
+      
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: -2;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 150%;
+        height: 300%;
+        background-color: #000;
+        background-repeat: no-repeat;
+        background-size: 50% 50%;
+        background-position: 0 0;
+        background-image: conic-gradient(var(--color), var(--color));
+        animation: buttonRotate 2s linear infinite;
+      }
+      
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 2px;
+        top: 2px;
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        background: #000;
+        border-radius: 10px;
+      }
+    }
+  }
+ 
+
+  .statics-container2{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+
+  .is-visible {
+    opacity: 1;
+    transform: rotateZ(0deg);
+  }
+
+
