@@ -164,6 +164,11 @@ $imgCount : 8;
 
             .tableContainer{
                 display: flex;
+                opacity: 0;
+                transform: translateY(4em) rotateZ(-5deg);
+                transition: transform 4s .35s cubic-bezier(0,1,.3,1),
+                            opacity .3s .25s ease-out;
+                will-change: transform, opacity;
 
                 table, th, td{
                     border: solid 1px white;
@@ -191,6 +196,10 @@ $imgCount : 8;
                     border-top: solid 1px white;
                     row-gap: 100px;
                 }
+            }
+            .is-visible {
+                opacity: 1;
+                transform: rotateZ(0deg);
             }
         }
         

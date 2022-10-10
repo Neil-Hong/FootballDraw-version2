@@ -1,7 +1,5 @@
-import React from "react";
-import { Suspense, useRef } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Preload, ScrollControls, Scroll, useScroll, Image, useFBO, PerspectiveCamera } from "@react-three/drei";
+import React, { Suspense } from "react";
+import ScoreBoardContent from "./ScoreBoardContent";
 
 import AC from "../../assets/images/AC.png";
 import Barcelona from "../../assets/images/Barcelona.png";
@@ -20,172 +18,126 @@ import Juventus from "../../assets/images/Juventus.png";
 import BVB09 from "../../assets/images/Dortmund.png";
 import MU from "../../assets/images/MU.png";
 import cantona from "../../assets/images/cantona.jpg";
-
-import "./ScoreBoard.styles.scss";
-
-function Images() {
-    const { width, height } = useThree((state) => state.viewport);
-    const data = useScroll();
-    const group = useRef();
-    useFrame(() => {
-        group.current.children[0].material.zoom = 1 + data.range(0, 1 / 3) / 3;
-        group.current.children[1].material.zoom = 1 + data.range(0, 1 / 3) / 3;
-        group.current.children[2].material.zoom = 1 + data.range(1 / 3, 1 / 3) / 3;
-        group.current.children[3].material.zoom = 1 + data.range(1.15 / 3, 1 / 3) / 2;
-        // group.current.children[4].material.zoom = 1 + data.range(1.25 / 3, 1 / 3) / 1;
-        // group.current.children[5].material.zoom = 1 + data.range(1.8 / 3, 1 / 3) / 3;
-        // group.current.children[5].material.grayscale = 1 - data.range(1.6 / 3, 1 / 3);
-        // group.current.children[6].material.zoom = 1 + (1 - data.range(2 / 3, 1 / 3)) / 3;
-    });
-    return (
-        <group ref={group}>
-            <Image position={[-1.5, 0, 0]} scale={[3, height - 2, 1]} url={AC} />
-            <Image position={[2.5, -height + 2, 1]} scale={[2, 2, 1]} url={MC} />
-            <Image position={[-2.3, -height + 2, 2]} scale={[1.3, 2, 1]} url={NF} />
-            <Image position={[-0.9, -height - 1, 3]} scale={[1.3, 1.3, 1]} url={cantona} />
-            {/* <Image position={[0.75, -height, 3.5]} scale={1.5} url={CP} />
-            <Image position={[0, -height * 1.5, 2.5]} scale={[1.5, 3, 1]} url={PSG} />
-            <Image position={[0, -height * 2 - height / 4, 0]} scale={[width, height / 2, 1]} url={SB29} /> */}
-        </group>
-    );
-}
+import gullit from "../../assets/images/Gullit.jpg";
+import essien from "../../assets/images/essein.jpg";
+import carlos from "../../assets/images/carlos.jpg";
+import puyol from "../../assets/images/Puyol.jpg";
+import kounde from "../../assets/images/Koundé.jpg";
 
 const ScoreBoard = () => {
+    const pexel = (id) =>
+        `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260`;
+    const images = [
+        // Front
+        {
+            position: [0, 0, 1.5],
+            rotation: [0, 0, 0],
+            url: AC,
+            title: "卫冕冠军",
+            Etitle: "Defending Champion",
+            name: "AC米兰",
+            Ename: "A.C. Milan",
+            score: null,
+            Escore: null,
+            number: null,
+        },
+        // Back
+        {
+            position: [1, 0, 1],
+            rotation: [0, 0, 0],
+            url: MC,
+            title: "亚军",
+            Etitle: "Second Runner-up",
+            name: "曼城",
+            Ename: "Manchester City F.C.",
+            score: null,
+            Escore: null,
+            number: null,
+        },
+        // { position: [0.8, 0, -0.6], rotation: [0, 0, 0], url: pexel(310452) },
+        // // Left
+
+        {
+            position: [-2.15, 0, 1.5],
+            rotation: [0, Math.PI / 2.5, 0],
+            url: cantona,
+            title: "卫冕金靴",
+            Etitle: "Golden Boot",
+            name: "坎通纳",
+            Ename: "Cantona",
+            score: "进球数",
+            Escore: "Goals",
+            number: "11",
+        },
+        {
+            position: [-3, 0, 2.75],
+            rotation: [0, Math.PI / 2.5, 0],
+            url: essien,
+            title: "卫冕脏王-1",
+            Etitle: "Fouls King-1",
+            name: "埃辛",
+            Ename: "Essien",
+            score: "黄牌数",
+            Escore: "Yellow Cards",
+            number: "3",
+        },
+        // { position: [-3.5, 0, 2], rotation: [0, Math.PI / 2.5, 0], url: pexel(327482) },
+        {
+            position: [-3.5, 0, 4.3],
+            rotation: [0, Math.PI / 2.5, 0],
+            url: puyol,
+            title: "卫冕脏王-2",
+            Etitle: "Fouls King-2",
+            name: "普约尔",
+            Ename: "Puyol",
+            score: "黄牌数",
+            Escore: "Yellow Cards",
+            number: "3",
+        },
+        {
+            position: [-3.5, 0, 5.5],
+            rotation: [0, Math.PI / 2.5, 0],
+            url: kounde,
+            title: "卫冕脏王-3",
+            Etitle: "Fouls King-3",
+            name: "孔德",
+            Ename: "Koundé",
+            score: "黄牌数",
+            Escore: "Yellow Cards",
+            number: "3",
+        },
+        // // Right
+        // { position: [1.75, 0, 0.25], rotation: [0, -Math.PI / 2.5, 0], url: pexel(227675) },
+        {
+            position: [2.4, 0, 1.5],
+            rotation: [0, -Math.PI / 2.5, 0],
+            url: gullit,
+            title: "卫冕助攻王",
+            Etitle: "Best Assits",
+            name: "古力特",
+            Ename: "Gullit",
+            score: "助攻数",
+            Escore: "Assits",
+            number: "7",
+        },
+        {
+            position: [3.2, 0, 2.75],
+            rotation: [0, -Math.PI / 2.5, 0],
+            url: carlos,
+            title: "卫冕脏王之王",
+            Etitle: "Fouls God",
+            name: "卡洛斯",
+            Ename: "Carlos",
+            score: "红牌数",
+            Escore: "Red Cards",
+            number: "2",
+        },
+    ];
     return (
-        <div className="videoContainer">
-            <Canvas gl={{ antialias: false }} dpr={[1, 1.5]}>
-                <Suspense fallback={null}>
-                    <ScrollControls damping={4} pages={3}>
-                        <Scroll>
-                            <Images />
-                        </Scroll>
-                        <Scroll html>
-                            <h1
-                                style={{
-                                    position: "relative",
-                                    left: "118vh",
-                                    top: "20vh",
-                                    fontSize: "40px",
-                                    // writingMode: "vertical-lr",
-                                }}
-                            >
-                                卫冕冠军
-                            </h1>
-                            <h1
-                                style={{
-                                    position: "relative",
-                                    top: "19vh",
-                                    left: "119vh",
-                                }}
-                            >
-                                Defening Champion
-                            </h1>
-                            <h1
-                                style={{
-                                    position: "relative",
-                                    top: "19vh",
-                                    left: "118vh",
-                                }}
-                            >
-                                AC米兰
-                            </h1>
-                            <h1
-                                style={{
-                                    position: "relative",
-                                    top: "19vh",
-                                    left: "118vh",
-                                }}
-                            >
-                                A.C. Milan
-                            </h1>
-                            <h1
-                                style={{
-                                    position: "absolute",
-                                    top: "110vh",
-                                    left: "75vh",
-                                    writingMode: "vertical-lr",
-                                }}
-                            >
-                                亚军
-                            </h1>
-                            <h1
-                                style={{
-                                    position: "absolute",
-                                    top: "112vh",
-                                    left: "76vh",
-                                    fontSize: "28px",
-                                }}
-                            >
-                                First RunnerUp
-                            </h1>
-                            <h1
-                                style={{
-                                    position: "absolute",
-                                    top: "110vh",
-                                    left: "111vh",
-                                    writingMode: "vertical-lr",
-                                }}
-                            >
-                                季军
-                            </h1>
-                            <h1
-                                style={{
-                                    position: "absolute",
-                                    top: "112vh",
-                                    left: "112vh",
-                                    fontSize: "28px",
-                                }}
-                            >
-                                Second RunnerUp
-                            </h1>
-                            <h1
-                                style={{
-                                    position: "absolute",
-                                    top: "150vh",
-                                    left: "20vh",
-                                    writingMode: "vertical-lr",
-                                }}
-                            >
-                                卫冕金靴
-                            </h1>
-                            <h1
-                                style={{
-                                    position: "absolute",
-                                    top: "152vh",
-                                    left: "28.5vh",
-                                    fontSize: "28px",
-                                }}
-                            >
-                                Golden Boot
-                            </h1>
-                            <h1
-                                style={{
-                                    position: "absolute",
-                                    top: "164vh",
-                                    left: "22vh",
-                                    writingMode: "vertical-lr",
-                                }}
-                            >
-                                坎通纳
-                            </h1>
-                            <h1
-                                style={{
-                                    position: "absolute",
-                                    top: "165vh",
-                                    left: "27vh",
-                                    fontSize: "28px",
-                                }}
-                            >
-                                Cantona
-                            </h1>
-                            <h1 style={{ position: "absolute", top: "198.5vh", left: "0.5vw", fontSize: "40vw" }}>
-                                home
-                            </h1>
-                        </Scroll>
-                    </ScrollControls>
-                    <Preload />
-                </Suspense>
-            </Canvas>
+        <div>
+            <Suspense fallback={null}>
+                <ScoreBoardContent images={images} />
+            </Suspense>
         </div>
     );
 };

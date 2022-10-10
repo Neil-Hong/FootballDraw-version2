@@ -1,12 +1,10 @@
-import logo from "./logo.svg";
-import "./App.styles.scss";
-import MatchReview from "./components/MatchReview";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import "./App.styles.scss";
+import MatchReview from "./components/review/MatchReview";
 import Draw from "./components/draw/Draw";
-
 import ScoreBoard from "./components/score/ScoreBoard";
-import React from "react";
 
 function App() {
     return (
