@@ -2,21 +2,7 @@ import React, { Suspense } from "react";
 import ScoreBoardContent from "./ScoreBoardContent";
 
 import AC from "../../assets/images/AC.png";
-import Barcelona from "../../assets/images/Barcelona.png";
-import Chelasea from "../../assets/images/Chelsea.png";
 import MC from "../../assets/images/MC.png";
-import NF from "../../assets/images/NF.png";
-import Porto from "../../assets/images/Porto.png";
-import PSG from "../../assets/images/PSG.png";
-import CP from "../../assets/images/CP.png";
-import RealMadrid from "../../assets/images/RealMadrid.png";
-import Arsenal from "../../assets/images/Arsenal.png";
-import SB29 from "../../assets/images/SB29.png";
-import DerbyCounty from "../../assets/images/DerbyCounty.png";
-import Bayern from "../../assets/images/Bayern.png";
-import Juventus from "../../assets/images/Juventus.png";
-import BVB09 from "../../assets/images/Dortmund.png";
-import MU from "../../assets/images/MU.png";
 import cantona from "../../assets/images/cantona.jpg";
 import gullit from "../../assets/images/Gullit.jpg";
 import essien from "../../assets/images/essein.jpg";
@@ -25,8 +11,6 @@ import puyol from "../../assets/images/Puyol.jpg";
 import kounde from "../../assets/images/Koundé.jpg";
 
 const ScoreBoard = () => {
-    const pexel = (id) =>
-        `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260`;
     const images = [
         // Front
         {

@@ -1,0 +1,189 @@
+.stats{
+    width: 100%;
+    min-height: 2000px;
+
+    .stats-container{
+        display: flex;
+        flex-direction: row;
+        margin-left: auto;
+        margin-right: auto;
+        .stats-card{
+            color:white;
+            background-color: #0929c9;
+            font-weight: 800;
+            width:400px;
+            padding:10px 40px 40px 40px;
+            box-shadow: 1em 1em 2em .25em rgba(210, 207, 207, 0.2);
+            margin-left: auto;
+            margin-right: auto;
+            .stats-card-content{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+    
+                .stats-card-content-number{
+                    display: flex;
+                    flex-direction: row;
+                    align-items:flex-end;
+                    line-height: 30px;
+                    font-size: 20px;
+                }
+                
+            }
+            .bar {
+                position: relative;
+                height: 12px;
+                background: #5af7dc;;
+                width:  0%;
+                // top: 0px;
+                // left: 18px;
+                margin-top: 40px;
+                box-shadow: 0 0 3px #5af7dc;;
+                width: 200px;
+                align-items: center;
+    
+            }
+            .small-content{
+                font-weight: 600;
+                color: grey;
+            }
+        }
+
+        
+    }
+    .stats-player-container{
+        // display: flex;
+        // flex-direction: row;
+        // flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin:50px auto;
+    }
+    .playerCard-container{
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        background-color: white;
+        font-weight: 800;
+        font-size: 20px;
+      .playerCard{    
+        display: grid;
+        grid-template-columns: 0.1fr 0.6fr 0.3fr;
+        align-items: center;
+        box-shadow: 1em 1em 2em .25em rgba(210, 207, 207, 0.2);
+        .playerCard-row1{
+          background-color: #0000ff;
+          color:white;
+          line-height: 50px;        
+        }
+        .playerCard-row1-1{
+          display: grid;
+          grid-template-columns: 0.5fr 1fr;
+          background-color: #0000ff;
+          align-items: center;
+          color: white;
+          text-align: center;       
+        }
+        .playerCard-row1-2{
+          display: grid;
+          grid-template-columns: 0.5fr 1fr;
+          align-items: center;
+          text-align: center;   
+        }
+        img{
+          width:50px;
+          height:50px;
+        }
+        
+
+        
+        
+    }
+    .goal{
+      background-color: #0000ff;
+      color: white;
+      text-align: start;
+      font-size: 28px;
+      padding: 20px 0;
+    }
+    }
+    
+}
+
+.scale-up-hor-left {
+	-webkit-animation: scale-up-hor-left 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-hor-left 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@-webkit-keyframes scale-up-hor-left {
+    0% {
+      -webkit-transform: scaleX(0.4);
+              transform: scaleX(0.4);
+      -webkit-transform-origin: 0% 0%;
+              transform-origin: 0% 0%;
+    }
+    100% {
+      -webkit-transform: scaleX(1);
+              transform: scaleX(1);
+      -webkit-transform-origin: 0% 0%;
+              transform-origin: 0% 0%;
+    }
+  }
+  @keyframes scale-up-hor-left {
+    0% {
+      -webkit-transform: scaleX(0.4);
+              transform: scaleX(0.4);
+      -webkit-transform-origin: 0% 0%;
+              transform-origin: 0% 0%;
+    }
+    100% {
+      -webkit-transform: scaleX(1);
+              transform: scaleX(1);
+      -webkit-transform-origin: 0% 0%;
+              transform-origin: 0% 0%;
+    }
+  }
+
+  @keyframes unfoldIn {
+    0% {
+      transform:scaleY(.005) scaleX(0);
+    }
+    50% {
+      transform:scaleY(.005) scaleX(1);
+    }
+    100% {
+      transform:scaleY(1) scaleX(1);
+    }
+  }
+  
+  @keyframes unfoldOut {
+    0% {
+      transform:scaleY(1) scaleX(1);
+    }
+    50% {
+      transform:scaleY(.005) scaleX(1);
+    }
+    100% {
+      transform:scaleY(.005) scaleX(0);
+    }
+  }
+  
+  @keyframes zoomIn {
+    0% {
+      transform:scale(0);
+    }
+    100% {
+      transform:scale(1);
+    }
+  }
+  
+  @keyframes zoomOut {
+    0% {
+      transform:scale(1);
+    }
+    100% {
+      transform:scale(0);
+    }
+  }
