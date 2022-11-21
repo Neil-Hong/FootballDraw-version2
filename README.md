@@ -1,7 +1,9 @@
 # Introduction
 
 This website is a simple draw system, it imitates the UEFA Champions League draw scenario.
+
 Since the UEFA Champion Leagus will use Swiss-system tournament from 2024, This system flow the rules of Swiss-system tournament.
+
 According to the Leek Cup team amounts (24 teams), the pure Swiss-system tournament rules is not the best option, so from round 4, the upper bracket and lower bracket will be matched randomly, only 8 teams will advance to round 5, and only will advance to round 6 directly. For details, please review the match table in round 4 page.
 
 # Technology Stack
